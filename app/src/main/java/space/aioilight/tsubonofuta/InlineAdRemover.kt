@@ -7,7 +7,7 @@ import de.robv.android.xposed.callbacks.XC_LoadPackage
 import java.lang.Exception
 
 class InlineAdRemover {
-    fun RemoveInlineAd(lpparam: XC_LoadPackage.LoadPackageParam)
+    fun removeInlineAd(lpparam: XC_LoadPackage.LoadPackageParam)
     {
         try {
             XposedBridge.hookAllMethods(

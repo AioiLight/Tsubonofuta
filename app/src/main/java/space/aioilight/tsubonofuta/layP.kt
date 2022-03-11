@@ -9,6 +9,7 @@ class layP : IXposedHookLoadPackage {
             if (lpparam.packageName == "jp.co.airfront.android.a2chMate")
             {
                 InlineAdRemover().removeInlineAd(lpparam)
+                ThreadAdRemover().removeThreadAd(lpparam)
             }
         }
     }

@@ -26,7 +26,6 @@ class ThreadAdRemover {
                 "reload",
                 object: XC_MethodHook () {
                     override fun beforeHookedMethod(param: MethodHookParam?) {
-                        super.beforeHookedMethod(param)
                         if (!isHome(param)) {
                             param?.result = null
                         }
@@ -40,8 +39,7 @@ class ThreadAdRemover {
                 "onDestroy",
                 object: XC_MethodHook () {
                     override fun beforeHookedMethod(param: MethodHookParam?) {
-                        super.beforeHookedMethod(param)
-                        if (!isHome(param)) {
+                       if (!isHome(param)) {
                             param?.result = null
                         }
                     }
@@ -54,7 +52,6 @@ class ThreadAdRemover {
                 "onPause",
                 object: XC_MethodHook () {
                     override fun beforeHookedMethod(param: MethodHookParam?) {
-                        super.beforeHookedMethod(param)
                         if (!isHome(param)) {
                             param?.result = null
                         }
@@ -68,7 +65,6 @@ class ThreadAdRemover {
                 "onResume",
                 object: XC_MethodHook () {
                     override fun beforeHookedMethod(param: MethodHookParam?) {
-                        super.beforeHookedMethod(param)
                         if (!isHome(param)) {
                             param?.result = null
                         }

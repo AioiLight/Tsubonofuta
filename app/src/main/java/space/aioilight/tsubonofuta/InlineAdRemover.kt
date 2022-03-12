@@ -16,7 +16,6 @@ class InlineAdRemover {
                 "isAvailableInlineAd",
                 object : XC_MethodHook() {
                     public override fun afterHookedMethod(param: MethodHookParam?) {
-                        super.afterHookedMethod(param)
                         if (param != null) {
                             param.result = false
                         }

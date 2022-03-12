@@ -8,4 +8,6 @@
     <string name="settings_inline_desc">Only works with ChMate 0.8.10.150 and above.</string>
     <string name="settings_github_title" translatable="false">AioiLight/GitHub</string>
     <string name="settings_github_desc">Tap to open GitHub repository.</string>
+    <string name="settings_status_title">%1s Version %2s</string>
+    <string name="settings_status_desc">Tap to view licenses.</string>
 </resources>

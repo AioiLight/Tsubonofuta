@@ -23,6 +23,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
 import space.aioilight.tsubonofuta.ui.theme.DynamicColor
 import space.aioilight.tsubonofuta.ui.theme.Typography
 
@@ -81,8 +82,9 @@ fun SettingsContent() {
             default = true,
             prefs = pref
         )
-        Spacer(modifier = Modifier.height(256.dp))
+        Spacer(modifier = Modifier.height(128.dp))
         GitHub()
+        Status()
     }
 }
 
@@ -128,6 +130,36 @@ fun SettingsSwitch(title: String,
             }
         }
         Checkbox(checked = checkedState.value, onCheckedChange = null)
+    }
+}
+
+@Composable
+fun Status() {
+    val title = stringResource(id = R.string.settings_status_title, stringResource(id = R.string.app_name), BuildConfig.VERSION_NAME)
+    val desc = stringResource(id = R.string.settings_status_desc)
+    val context = LocalContext.current
+    Row(
+        Modifier
+            .clickable {
+                val intent = Intent(context, OssLicensesMenuActivity::class.java)
+                context.startActivity(intent)
+            }
+            .fillMaxWidth()
+            .padding(24.dp),
+        Arrangement.SpaceBetween,
+    ) {
+        Column(
+            Modifier.weight(1f)
+        ) {
+            Text(
+                text = title,
+                style = Typography.subtitle1
+            )
+            Text(
+                text = desc,
+                style = Typography.caption
+            )
+        }
     }
 }
 

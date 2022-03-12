@@ -59,17 +59,18 @@ fun SettingScreen() {
     }
 }
 
+@SuppressLint("WorldReadableFiles")
 @Composable
 fun SettingsContent() {
     val scrollState = rememberScrollState()
-    val pref = LocalContext.current.getSharedPreferences("settings", Context.MODE_PRIVATE)
+    val pref = LocalContext.current.getSharedPreferences("tsuboprefs", Context.MODE_WORLD_READABLE)
     Column(
         Modifier.verticalScroll(scrollState)
     ) {
         SettingsSwitch(
             title = stringResource(id = R.string.settings_thread_title),
             description = stringResource(id = R.string.settings_thread_desc),
-            key = "home",
+            key = "thread",
             default = true,
             prefs = pref
         )
@@ -80,6 +81,7 @@ fun SettingsContent() {
             default = true,
             prefs = pref
         )
+        Spacer(modifier = Modifier.height(256.dp))
         GitHub()
     }
 }
@@ -94,7 +96,7 @@ fun SettingsTopBar(topAppBarScrollBehavior: TopAppBarScrollBehavior) {
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
-@SuppressLint("CommitPrefEdits")
+@SuppressLint("CommitPrefEdits", "ApplySharedPref")
 @Composable
 fun SettingsSwitch(title: String,
                    description: String,
@@ -107,6 +109,9 @@ fun SettingsSwitch(title: String,
         Modifier
             .clickable {
                 checkedState.value = !checkedState.value
+                val editor = prefs.edit()
+                editor.putBoolean(key, checkedState.value)
+                editor.commit()
             }
             .fillMaxWidth()
             .padding(24.dp),
@@ -122,10 +127,7 @@ fun SettingsSwitch(title: String,
                     style = Typography.caption)
             }
         }
-        Checkbox(checked = checkedState.value, onCheckedChange = {
-            checkedState.value = it
-            prefs.edit().putBoolean(key, it)
-        })
+        Checkbox(checked = checkedState.value, onCheckedChange = null)
     }
 }
 

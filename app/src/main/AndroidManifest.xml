@@ -29,7 +29,7 @@
             android:value="F*ck inline ads of ChMate" />
         <meta-data
             android:name="xposedminversion"
-            android:value="82" />
+            android:value="93" />
         <meta-data
             android:name="xposedscope"
             android:resource="@array/apps" />

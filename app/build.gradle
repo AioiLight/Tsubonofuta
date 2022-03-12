@@ -11,7 +11,7 @@ android {
         applicationId "space.aioilight.tsubonofuta"
         minSdk 28
         targetSdk 32
-        versionCode 4
+        versionCode 13
         versionName "2.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -78,8 +78,6 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-viewmodel-compose:2.5.0-alpha04'
     // UI Tests
     androidTestImplementation 'androidx.compose.ui:ui-test-junit4:1.1.1'
-
-    implementation 'com.crossbowffs.remotepreferences:remotepreferences:0.8'
 
     implementation 'com.google.android.gms:play-services-oss-licenses:17.0.0'
 }

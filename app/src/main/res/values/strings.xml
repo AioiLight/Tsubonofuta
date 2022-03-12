@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Tsubonofuta</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+    <string name="settings_thread_title">Remove ads in thread</string>
+    <string name="settings_thread_desc">Removes ads in thread viewer. It does not apply to the home screen.</string>
+    <string name="settings_inline_title">Remove inline ads</string>
+    <string name="settings_inline_desc">Only works with ChMate 0.8.10.150 and above.</string>
+    <string name="settings_github_title" translatable="false">AioiLight/GitHub</string>
+    <string name="settings_github_desc">Tap to open GitHub repository.</string>
 </resources>

@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Tsubonofuta</string>
     <string name="repository_url" translatable="false">https://github.com/AioiLight/Tsubonofuta</string>
-    <string name="title_activity_settings" translatable="false">SettingsActivity</string>
+    <string name="title_activity_settings" translatable="false">Tsubonofuta</string>
     <string name="settings_thread_title">Remove ads in thread</string>
     <string name="settings_thread_desc">Removes ads in thread viewer. It does not apply to the home screen.</string>
     <string name="settings_inline_title">Remove inline ads</string>

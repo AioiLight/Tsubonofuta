@@ -2,7 +2,9 @@ package space.aioilight.tsubonofuta
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
+import android.net.Uri
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -129,10 +131,13 @@ fun SettingsSwitch(title: String,
 
 @Composable
 fun GitHub() {
+    val uri = stringResource(id = R.string.repository_url)
+    val context = LocalContext.current
     Row(
         Modifier
             .clickable {
-
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(uri))
+                context.startActivity(intent)
             }
             .fillMaxWidth()
             .padding(24.dp),

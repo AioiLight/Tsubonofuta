@@ -1,14 +1,8 @@
 package space.aioilight.tsubonofuta
 
-import android.app.AndroidAppHelper
-import android.content.Context
-import android.content.SharedPreferences
-import com.crossbowffs.remotepreferences.RemotePreferences
 import de.robv.android.xposed.IXposedHookLoadPackage
 import de.robv.android.xposed.XSharedPreferences
-import de.robv.android.xposed.XposedBridge
 import de.robv.android.xposed.callbacks.XC_LoadPackage
-import java.lang.Exception
 
 class layP : IXposedHookLoadPackage {
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam?) {

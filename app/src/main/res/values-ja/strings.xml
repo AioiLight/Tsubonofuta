@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Tsubonofuta</string>
+    <string name="settings_thread_title">スレッド内広告を削除</string>
+    <string name="settings_thread_desc">スレッド内広告を削除します。ホーム画面には適用されません。</string>
+    <string name="settings_inline_title">インライン広告を削除</string>
+    <string name="settings_inline_desc">ChMate 0.8.10.150 以降でのみ機能します。</string>
+    <string name="settings_github_desc">タップして GitHub リポジトリを開く。</string>
+</resources>

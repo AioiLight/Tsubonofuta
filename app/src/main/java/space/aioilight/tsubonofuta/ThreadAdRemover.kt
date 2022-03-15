@@ -1,9 +1,11 @@
 package space.aioilight.tsubonofuta
 
+import android.content.res.XModuleResources
 import de.robv.android.xposed.XC_MethodHook
 import de.robv.android.xposed.XC_MethodReplacement
 import de.robv.android.xposed.XposedBridge
 import de.robv.android.xposed.XposedHelpers
+import de.robv.android.xposed.callbacks.XC_InitPackageResources
 import de.robv.android.xposed.callbacks.XC_LoadPackage
 
 class ThreadAdRemover {
@@ -12,10 +14,12 @@ class ThreadAdRemover {
 
     private fun isHome(p: XC_MethodHook.MethodHookParam?): Boolean {
         if (p != null) {
-            val str = XposedHelpers.getObjectField(p.thisObject, "valueOf").toString()
-            return str.isEmpty()
+            val str = XposedHelpers.getObjectField(p.thisObject, "c")
+            if (str != null) {
+                return false
+            }
         }
-        return false
+        return true
     }
 
     fun removeThreadAd(lpparam: XC_LoadPackage.LoadPackageParam) {
@@ -24,13 +28,12 @@ class ThreadAdRemover {
                 XposedHelpers.findClass(
                     view,
                     lpparam.classLoader),
-                "setNgWordExists",
+                "RemoteActionCompatParcelizer",
                 object: XC_MethodHook () {
                     override fun beforeHookedMethod(param: MethodHookParam?) {
-                        param?.result = null
-//                        if (!isHome(param)) {
-//                            param?.result = null
-//                        }
+                        if (!isHome(param)) {
+                            param?.result = null
+                        }
                     }
                 })
 //            XposedBridge.hookAllConstructors(
@@ -53,7 +56,7 @@ class ThreadAdRemover {
 //                        }
 //                    }
 //                })
-
+//
 //            XposedBridge.hookAllMethods(
 //                XposedHelpers.findClass(
 //                    view,

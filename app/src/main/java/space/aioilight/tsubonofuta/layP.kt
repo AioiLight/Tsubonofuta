@@ -5,9 +5,12 @@ import de.robv.android.xposed.XSharedPreferences
 import de.robv.android.xposed.callbacks.XC_LoadPackage
 
 class layP : IXposedHookLoadPackage {
+
+    val pkgName = "jp.co.airfront.android.a2chMate"
+
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam?) {
         if (lpparam != null) {
-            if (lpparam.packageName == "jp.co.airfront.android.a2chMate") {
+            if (lpparam.packageName == pkgName) {
 
                 val pref = XSharedPreferences(BuildConfig.APPLICATION_ID, "tsuboprefs")
 
